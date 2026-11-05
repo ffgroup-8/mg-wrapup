@@ -266,6 +266,55 @@ footer .fine{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
 .reveal-ready .rv{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
 .reveal-ready .rv.in{opacity:1;transform:none}
 @media print{.reveal-ready .rv{opacity:1;transform:none}}
+
+/* ---------- responsive hardening ---------- */
+img,svg,video{max-width:100%}
+.wrap{min-width:0}
+.grid20,.feat,.marks,.swatches,.shop-stats,.gallery,.flow,.steps,.story,.extras,.next-list,.hood,.rollout,.stats,.studio,.proof,.ba,.logo-card,.sec-head{min-width:0}
+.grid20>*,.feat>*,.marks>*,.swatches>*,.shop-stats>*,.gallery>*,.flow>*,.steps>*,.story>*,.extras>*,.next-list>*,.hood>*,.rollout>*,.stats>*,.studio>*,.proof>*,.ba>*,.logo-card>*,.sec-head>*{min-width:0}
+.c a,.row p,.rollout span{overflow-wrap:anywhere}
+.zoom img{height:auto}
+@media (max-width:860px){
+  .ai-table-wrap{overflow:visible;border:0;background:transparent}
+  .ai-table{min-width:0;display:block}
+  .ai-table thead{display:none}
+  .ai-table tbody{display:grid;gap:12px}
+  .ai-table tr{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 12px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px}
+  .ai-table td{display:block;padding:0;border:0}
+  .ai-table td.q{grid-column:1 / -1;font-size:16px}
+  .ai-table td.who{grid-column:1;white-space:normal;margin-top:4px}
+  .ai-table td[data-label="Rank"]{grid-column:2;grid-row:2 / span 2;align-self:start;margin-top:4px}
+  .ai-table td[data-label="AI tool"]{grid-column:1;grid-row:3;font-size:13px}
+  .ai-table td[data-label="AI tool"]::before{content:"via ";}
+  .ai-table td.why{grid-column:1 / -1;border-top:1px solid var(--line);padding-top:8px;margin-top:6px}
+}
+@media (max-width:560px){
+  .marks{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .mk{padding:14px;gap:10px}
+  .mk figcaption{font-size:10px;letter-spacing:.06em;text-align:center}
+  .swatches{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .sw{min-height:110px}
+  .lines{font-size:clamp(22px,7vw,30px);gap:6px 18px}
+  .lines span{white-space:normal}
+  .hero h1{font-size:clamp(52px,17vw,80px)}
+  .sec-head h2{font-size:clamp(34px,10.5vw,48px)}
+  .bar{flex-direction:column;align-items:flex-start;gap:10px}
+  .ba-col,.f,.big,.proof-card,.logo-card{padding:22px}
+  .shop-stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .shop-stats div{padding:16px}
+  .shop-stats b{font-size:clamp(28px,8.5vw,38px)}
+  .grid20{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .c{padding:16px 14px}
+  .c b{font-size:17px}
+  .row{gap:10px}
+  .lb-close{top:8px;right:8px}
+}
+@media (max-width:380px){
+  .grid20{grid-template-columns:1fr}
+  .shop-stats{grid-template-columns:1fr}
+}
+/* last-resort guard so nothing can ever push the page sideways */
+html,body{overflow-x:clip}
 </style>
 </head>
 <body>
@@ -391,7 +440,7 @@ footer .fine{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
     </div>
     <div class="pair-head"><span class="eyebrow">Content in Sanity</span><h3>One studio for every site.</h3></div>
     <div class="studio">
-      <figure class="shot "><button type="button" class="zoom" data-zoom="assets/shots/sanity-structure.webp" data-cap="The Sanity studio your team works in today: group site, shop, every restaurant, private dining rooms and global FAQs in one place."><img src="assets/shots/sanity-structure.webp" alt="The McNellie's Group Sanity studio, showing group site content, shop, every restaurant and private dining rooms" loading="lazy"><span class="zoom-hint">Click to enlarge</span></button><figcaption>The Sanity studio your team works in today: group site, shop, every restaurant, private dining rooms and global FAQs in one place.</figcaption></figure>
+      <figure class="shot "><button type="button" class="zoom" data-zoom="assets/shots/sanity-structure.webp" data-cap="The Sanity studio your team works in today: group site, shop, every restaurant, private dining rooms and global FAQs in one place."><img src="assets/shots/sanity-structure.webp" width="2000" height="1338" alt="The McNellie's Group Sanity studio, showing group site content, shop, every restaurant and private dining rooms" loading="lazy"><span class="zoom-hint">Click to enlarge</span></button><figcaption>The Sanity studio your team works in today: group site, shop, every restaurant, private dining rooms and global FAQs in one place.</figcaption></figure>
       <div class="studio-notes">
         <span class="eyebrow">Inside the studio</span>
         <ul>
@@ -410,7 +459,7 @@ footer .fine{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
       <div><b>98%</b><span>of sales through the custom Next.js storefront ($80.6K of $81.9K)</span></div>
     </div>
     <div class="studio">
-      <figure class="shot "><button type="button" class="zoom" data-zoom="assets/shots/shopify-analytics.webp" data-cap="Shopify analytics: $81,998.86 in total sales so far this year, led by physical gift cards, e-gift cards and the Roxtec VIP Watch Party."><img src="assets/shots/shopify-analytics.webp" alt="Shopify analytics for McNellie's Group showing sales over time, sales by channel and top products" loading="lazy"><span class="zoom-hint">Click to enlarge</span></button><figcaption>Shopify analytics: $81,998.86 in total sales so far this year, led by physical gift cards, e-gift cards and the Roxtec VIP Watch Party.</figcaption></figure>
+      <figure class="shot "><button type="button" class="zoom" data-zoom="assets/shots/shopify-analytics.webp" data-cap="Shopify analytics: $81,998.86 in total sales so far this year, led by physical gift cards, e-gift cards and the Roxtec VIP Watch Party."><img src="assets/shots/shopify-analytics.webp" width="2000" height="1239" alt="Shopify analytics for McNellie's Group showing sales over time, sales by channel and top products" loading="lazy"><span class="zoom-hint">Click to enlarge</span></button><figcaption>Shopify analytics: $81,998.86 in total sales so far this year, led by physical gift cards, e-gift cards and the Roxtec VIP Watch Party.</figcaption></figure>
       <div class="studio-notes">
         <span class="eyebrow">What it sells</span>
         <ul>
@@ -421,7 +470,7 @@ footer .fine{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
       </div>
     </div>
     <div class="gallery" style="margin-top:20px">
-      <figure class="shot wide"><button type="button" class="zoom" data-zoom="assets/shots/shopify-products.webp" data-cap="One product catalog for gift cards, event tickets and branded merch, with inventory tracked by variant."><img src="assets/shots/shopify-products.webp" alt="Shopify product list with gift cards, event tickets and branded merchandise" loading="lazy"><span class="zoom-hint">Click to enlarge</span></button><figcaption>One product catalog for gift cards, event tickets and branded merch, with inventory tracked by variant.</figcaption></figure>
+      <figure class="shot wide"><button type="button" class="zoom" data-zoom="assets/shots/shopify-products.webp" data-cap="One product catalog for gift cards, event tickets and branded merch, with inventory tracked by variant."><img src="assets/shots/shopify-products.webp" width="2000" height="1220" alt="Shopify product list with gift cards, event tickets and branded merchandise" loading="lazy"><span class="zoom-hint">Click to enlarge</span></button><figcaption>One product catalog for gift cards, event tickets and branded merch, with inventory tracked by variant.</figcaption></figure>
     </div>
   </div>
 </section>
@@ -441,10 +490,10 @@ footer .fine{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
     </ol>
 
     <div class="gallery">
-      <figure class="shot wide"><button type="button" class="zoom" data-zoom="assets/shots/figma-websites.webp" data-cap="Website design files for every concept, each built on the shared library."><img src="assets/shots/figma-websites.webp" alt="Figma website design files for each McNellie's concept" loading="lazy"><span class="zoom-hint">Click to enlarge</span></button><figcaption>Website design files for every concept, each built on the shared library.</figcaption></figure>
-      <figure class="shot "><button type="button" class="zoom" data-zoom="assets/shots/figma-colors.webp" data-cap="Brand, surface and text color tokens, defined for each concept."><img src="assets/shots/figma-colors.webp" alt="Figma color token sheets for Forno Santo, Howdy Burger, Jimmy's, Malfi and more" loading="lazy"><span class="zoom-hint">Click to enlarge</span></button><figcaption>Brand, surface and text color tokens, defined for each concept.</figcaption></figure>
-      <figure class="shot "><button type="button" class="zoom" data-zoom="assets/shots/figma-logos.webp" data-cap="Complete logo systems per concept, from primary lockups to stamps and illustrations."><img src="assets/shots/figma-logos.webp" alt="Figma logo libraries for Bar Serra, Bishop Quigley and Forno Santo" loading="lazy"><span class="zoom-hint">Click to enlarge</span></button><figcaption>Complete logo systems per concept, from primary lockups to stamps and illustrations.</figcaption></figure>
-      <figure class="shot wide"><button type="button" class="zoom" data-zoom="assets/shots/figma-menus.webp" data-cap="Menu files across the portfolio, pulling from the same type, color and logo assets."><img src="assets/shots/figma-menus.webp" alt="Figma menu files for each McNellie's concept" loading="lazy"><span class="zoom-hint">Click to enlarge</span></button><figcaption>Menu files across the portfolio, pulling from the same type, color and logo assets.</figcaption></figure>
+      <figure class="shot wide"><button type="button" class="zoom" data-zoom="assets/shots/figma-websites.webp" data-cap="Website design files for every concept, each built on the shared library."><img src="assets/shots/figma-websites.webp" width="2000" height="1366" alt="Figma website design files for each McNellie's concept" loading="lazy"><span class="zoom-hint">Click to enlarge</span></button><figcaption>Website design files for every concept, each built on the shared library.</figcaption></figure>
+      <figure class="shot "><button type="button" class="zoom" data-zoom="assets/shots/figma-colors.webp" data-cap="Brand, surface and text color tokens, defined for each concept."><img src="assets/shots/figma-colors.webp" width="1196" height="1210" alt="Figma color token sheets for Forno Santo, Howdy Burger, Jimmy's, Malfi and more" loading="lazy"><span class="zoom-hint">Click to enlarge</span></button><figcaption>Brand, surface and text color tokens, defined for each concept.</figcaption></figure>
+      <figure class="shot "><button type="button" class="zoom" data-zoom="assets/shots/figma-logos.webp" data-cap="Complete logo systems per concept, from primary lockups to stamps and illustrations."><img src="assets/shots/figma-logos.webp" width="770" height="516" alt="Figma logo libraries for Bar Serra, Bishop Quigley and Forno Santo" loading="lazy"><span class="zoom-hint">Click to enlarge</span></button><figcaption>Complete logo systems per concept, from primary lockups to stamps and illustrations.</figcaption></figure>
+      <figure class="shot wide"><button type="button" class="zoom" data-zoom="assets/shots/figma-menus.webp" data-cap="Menu files across the portfolio, pulling from the same type, color and logo assets."><img src="assets/shots/figma-menus.webp" width="2000" height="1363" alt="Figma menu files for each McNellie's concept" loading="lazy"><span class="zoom-hint">Click to enlarge</span></button><figcaption>Menu files across the portfolio, pulling from the same type, color and logo assets.</figcaption></figure>
     </div>
   </div>
 </section>
@@ -538,25 +587,25 @@ footer .fine{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
         <table class="ai-table">
           <thead><tr><th>What we asked</th><th>AI tool</th><th>Recommended</th><th>Rank</th><th>What it said</th></tr></thead>
           <tbody>
-          <tr><td class="q">"best Italian restaurant in downtown Tulsa"</td><td>Perplexity</td><td class="who">Forno Santo</td><td><span class="rank-pill gold">#1</span></td><td class="why">Cited fornosantotulsa.com as its source</td></tr>
-          <tr><td class="q">"best steakhouse on Brookside in Tulsa"</td><td>Google AI Mode</td><td class="who">Jimmy's Chophouse</td><td><span class="rank-pill gold">#1</span></td><td class="why">Called it the undisputed best on the Brookside strip</td></tr>
-          <tr><td class="q">"best steakhouse on Brookside in Tulsa"</td><td>Perplexity</td><td class="who">Jimmy's Chophouse</td><td><span class="rank-pill gold">#1</span></td><td class="why">Its top pick, by address</td></tr>
-          <tr><td class="q">"best steakhouse in Jenks, Oklahoma"</td><td>Google AI Mode</td><td class="who">City Hall</td><td><span class="rank-pill gold">#1</span></td><td class="why">Top recommendation for a refined chophouse</td></tr>
-          <tr><td class="q">"German beer hall in Tulsa"</td><td>Google AI Mode</td><td class="who">Fassler Hall</td><td><span class="rank-pill gold">#1</span></td><td class="why">Named the best German beer hall experience in Tulsa</td></tr>
-          <tr><td class="q">"best breakfast in downtown Tulsa"</td><td>Google AI Mode</td><td class="who">Dilly Diner</td><td><span class="rank-pill gold">#1</span></td><td class="why">Overall top pick, Blue Dome District</td></tr>
-          <tr><td class="q">"bowling alley with a bar for a party in Oklahoma City"</td><td>Google AI Mode</td><td class="who">Dust Bowl</td><td><span class="rank-pill gold">#1</span></td><td class="why">Top choice for adult and corporate parties</td></tr>
-          <tr><td class="q">"best smash burger in Tulsa"</td><td>Perplexity</td><td class="who">Howdy Burger</td><td><span class="rank-pill gold">1st named</span></td><td class="why">First restaurant mentioned</td></tr>
-          <tr><td class="q">"best smash burger in Tulsa"</td><td>Google AI Mode</td><td class="who">Howdy Burger</td><td><span class="rank-pill silver">#2</span></td><td class="why">Described in the new site's own words, citing howdyburger.com</td></tr>
-          <tr><td class="q">"best sushi in Tulsa"</td><td>Perplexity</td><td class="who">Yokozuna</td><td><span class="rank-pill silver">#2</span></td><td class="why">Best downtown pick for creative rolls</td></tr>
-          <tr><td class="q">"best Irish pub in Tulsa"</td><td>Google AI Mode</td><td class="who">Bishop Quigley, McNellie's Pub</td><td><span class="rank-pill silver">#2, #3</span></td><td class="why">Two McNellie's pubs in the top three</td></tr>
-          <tr><td class="q">"best sushi in Bentonville, Arkansas"</td><td>Google AI Mode</td><td class="who">Yokozuna Bentonville</td><td><span class="rank-pill silver">#3</span></td><td class="why">The newest location is already recommended</td></tr>
+          <tr><td data-label="What we asked" class="q">"best Italian restaurant in downtown Tulsa"</td><td data-label="AI tool">Perplexity</td><td data-label="Recommended" class="who">Forno Santo</td><td data-label="Rank"><span class="rank-pill gold">#1</span></td><td data-label="What it said" class="why">Cited fornosantotulsa.com as its source</td></tr>
+          <tr><td data-label="What we asked" class="q">"best steakhouse on Brookside in Tulsa"</td><td data-label="AI tool">Google AI Mode</td><td data-label="Recommended" class="who">Jimmy's Chophouse</td><td data-label="Rank"><span class="rank-pill gold">#1</span></td><td data-label="What it said" class="why">Called it the undisputed best on the Brookside strip</td></tr>
+          <tr><td data-label="What we asked" class="q">"best steakhouse on Brookside in Tulsa"</td><td data-label="AI tool">Perplexity</td><td data-label="Recommended" class="who">Jimmy's Chophouse</td><td data-label="Rank"><span class="rank-pill gold">#1</span></td><td data-label="What it said" class="why">Its top pick, by address</td></tr>
+          <tr><td data-label="What we asked" class="q">"best steakhouse in Jenks, Oklahoma"</td><td data-label="AI tool">Google AI Mode</td><td data-label="Recommended" class="who">City Hall</td><td data-label="Rank"><span class="rank-pill gold">#1</span></td><td data-label="What it said" class="why">Top recommendation for a refined chophouse</td></tr>
+          <tr><td data-label="What we asked" class="q">"German beer hall in Tulsa"</td><td data-label="AI tool">Google AI Mode</td><td data-label="Recommended" class="who">Fassler Hall</td><td data-label="Rank"><span class="rank-pill gold">#1</span></td><td data-label="What it said" class="why">Named the best German beer hall experience in Tulsa</td></tr>
+          <tr><td data-label="What we asked" class="q">"best breakfast in downtown Tulsa"</td><td data-label="AI tool">Google AI Mode</td><td data-label="Recommended" class="who">Dilly Diner</td><td data-label="Rank"><span class="rank-pill gold">#1</span></td><td data-label="What it said" class="why">Overall top pick, Blue Dome District</td></tr>
+          <tr><td data-label="What we asked" class="q">"bowling alley with a bar for a party in Oklahoma City"</td><td data-label="AI tool">Google AI Mode</td><td data-label="Recommended" class="who">Dust Bowl</td><td data-label="Rank"><span class="rank-pill gold">#1</span></td><td data-label="What it said" class="why">Top choice for adult and corporate parties</td></tr>
+          <tr><td data-label="What we asked" class="q">"best smash burger in Tulsa"</td><td data-label="AI tool">Perplexity</td><td data-label="Recommended" class="who">Howdy Burger</td><td data-label="Rank"><span class="rank-pill gold">1st named</span></td><td data-label="What it said" class="why">First restaurant mentioned</td></tr>
+          <tr><td data-label="What we asked" class="q">"best smash burger in Tulsa"</td><td data-label="AI tool">Google AI Mode</td><td data-label="Recommended" class="who">Howdy Burger</td><td data-label="Rank"><span class="rank-pill silver">#2</span></td><td data-label="What it said" class="why">Described in the new site's own words, citing howdyburger.com</td></tr>
+          <tr><td data-label="What we asked" class="q">"best sushi in Tulsa"</td><td data-label="AI tool">Perplexity</td><td data-label="Recommended" class="who">Yokozuna</td><td data-label="Rank"><span class="rank-pill silver">#2</span></td><td data-label="What it said" class="why">Best downtown pick for creative rolls</td></tr>
+          <tr><td data-label="What we asked" class="q">"best Irish pub in Tulsa"</td><td data-label="AI tool">Google AI Mode</td><td data-label="Recommended" class="who">Bishop Quigley, McNellie's Pub</td><td data-label="Rank"><span class="rank-pill silver">#2, #3</span></td><td data-label="What it said" class="why">Two McNellie's pubs in the top three</td></tr>
+          <tr><td data-label="What we asked" class="q">"best sushi in Bentonville, Arkansas"</td><td data-label="AI tool">Google AI Mode</td><td data-label="Recommended" class="who">Yokozuna Bentonville</td><td data-label="Rank"><span class="rank-pill silver">#3</span></td><td data-label="What it said" class="why">The newest location is already recommended</td></tr>
           </tbody>
         </table>
       </div>
       <div class="gallery ai-gallery">
-        <figure class="shot"><button type="button" class="zoom" data-zoom="assets/shots/ai-forno-perplexity.webp" data-cap="Perplexity: Forno Santo, the best overall Italian restaurant downtown."><img src="assets/shots/ai-forno-perplexity.webp" alt="Perplexity answer naming Forno Santo the best Italian restaurant in downtown Tulsa" loading="lazy"><span class="zoom-hint">Click to enlarge</span></button><figcaption>Perplexity: Forno Santo, the best overall Italian restaurant downtown.</figcaption></figure>
-        <figure class="shot"><button type="button" class="zoom" data-zoom="assets/shots/ai-jimmys-google.webp" data-cap="Google AI Mode: Jimmy's Chophouse, the best steakhouse on Brookside."><img src="assets/shots/ai-jimmys-google.webp" alt="Google AI Mode answer naming Jimmy's Chophouse the best steakhouse on Brookside" loading="lazy"><span class="zoom-hint">Click to enlarge</span></button><figcaption>Google AI Mode: Jimmy's Chophouse, the best steakhouse on Brookside.</figcaption></figure>
-        <figure class="shot"><button type="button" class="zoom" data-zoom="assets/shots/ai-dustbowl-google.webp" data-cap="Google AI Mode: Dust Bowl, the top choice for a bowling party in OKC."><img src="assets/shots/ai-dustbowl-google.webp" alt="Google AI Mode answer naming Dust Bowl the top choice for a bowling party in Oklahoma City" loading="lazy"><span class="zoom-hint">Click to enlarge</span></button><figcaption>Google AI Mode: Dust Bowl, the top choice for a bowling party in OKC.</figcaption></figure>
+        <figure class="shot"><button type="button" class="zoom" data-zoom="assets/shots/ai-forno-perplexity.webp" data-cap="Perplexity: Forno Santo, the best overall Italian restaurant downtown."><img src="assets/shots/ai-forno-perplexity.webp" width="660" height="530" alt="Perplexity answer naming Forno Santo the best Italian restaurant in downtown Tulsa" loading="lazy"><span class="zoom-hint">Click to enlarge</span></button><figcaption>Perplexity: Forno Santo, the best overall Italian restaurant downtown.</figcaption></figure>
+        <figure class="shot"><button type="button" class="zoom" data-zoom="assets/shots/ai-jimmys-google.webp" data-cap="Google AI Mode: Jimmy's Chophouse, the best steakhouse on Brookside."><img src="assets/shots/ai-jimmys-google.webp" width="950" height="610" alt="Google AI Mode answer naming Jimmy's Chophouse the best steakhouse on Brookside" loading="lazy"><span class="zoom-hint">Click to enlarge</span></button><figcaption>Google AI Mode: Jimmy's Chophouse, the best steakhouse on Brookside.</figcaption></figure>
+        <figure class="shot"><button type="button" class="zoom" data-zoom="assets/shots/ai-dustbowl-google.webp" data-cap="Google AI Mode: Dust Bowl, the top choice for a bowling party in OKC."><img src="assets/shots/ai-dustbowl-google.webp" width="950" height="620" alt="Google AI Mode answer naming Dust Bowl the top choice for a bowling party in Oklahoma City" loading="lazy"><span class="zoom-hint">Click to enlarge</span></button><figcaption>Google AI Mode: Dust Bowl, the top choice for a bowling party in OKC.</figcaption></figure>
       </div>
       <p class="ai-note">One test, run from Tulsa on November 5, 2026. AI answers shift from day to day and person to person, so treat this as a snapshot, not a guarantee. We recommend re-running the same questions monthly to track the trend.</p>
     </div>
