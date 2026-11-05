@@ -57,7 +57,7 @@ section{padding:clamp(64px,9vw,112px) 0}
 .sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(24px,5vw,72px);align-items:end;margin-bottom:clamp(36px,5vw,56px)}
 .sec-head h2{font-weight:800;font-size:clamp(40px,6.4vw,80px);line-height:.92;letter-spacing:-0.005em;color:var(--glen)}
 .sec-head p{font-size:18px;max-width:520px;color:var(--muted)}
-.num{font-family:var(--display);font-weight:700;color:var(--clover);font-size:15px;margin-bottom:14px;display:block}
+.num{font-family:var(--display);font-weight:700;color:var(--clover);font-size:19px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:16px;display:block}
 
 /* ---------- before / after ---------- */
 .ba{display:grid;grid-template-columns:1fr auto 1fr;gap:0;align-items:stretch}
@@ -133,6 +133,14 @@ dialog.lb::backdrop{background:rgba(0,26,7,.86)}
 @media (max-width:900px){.flow{grid-template-columns:1fr 1fr}.flow li:nth-child(3){padding-left:0}.flow li:nth-child(3)::after{display:none}.studio{grid-template-columns:1fr}}
 @media (max-width:560px){.flow,.gallery{grid-template-columns:1fr}.flow li{padding-left:0 !important}.flow li::after{display:none}.lb-close{top:8px;right:8px}}
 @media (prefers-reduced-motion:reduce){.zoom{transition:none}.zoom:hover{transform:none}}
+.pair-head{margin:56px 0 18px;padding-top:24px;border-top:2px solid var(--glen)}
+.pair-head .eyebrow{color:var(--clover)}
+.pair-head h3{font-size:clamp(28px,3.4vw,40px);color:var(--glen);margin-top:8px}
+.shop-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:8px}
+.shop-stats div{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px}
+.shop-stats b{display:block;font-family:var(--display);font-size:clamp(36px,4vw,48px);color:var(--glen);line-height:1;font-variant-numeric:tabular-nums}
+.shop-stats span{display:block;margin-top:8px;font-size:14px;color:var(--muted)}
+@media (max-width:900px){.shop-stats{grid-template-columns:1fr 1fr}}
 /* ---------- platform ---------- */
 .feat{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .f{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px}
@@ -236,7 +244,7 @@ footer .fine{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
     </div>
     <div class="hero-inner">
       <p class="eyebrow" style="color:#9fdcae;margin-bottom:22px">McNellie's Group digital &amp; brand overhaul</p>
-      <h1>hospitality<br>going <span class="up">up.</span></h1>
+      <h1>Hospitality<br>going <span class="up">up.</span></h1>
       <p class="lede">A year of work on one page. McNellie's Group started on an aging WordPress multisite. Today it has a new brand, one shared platform behind every website, and restaurants that rank and show up in AI answers.</p>
       <div class="stats">
         <div class="stat"><b>20</b><span>websites on one platform</span></div>
@@ -277,7 +285,7 @@ footer .fine{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
           <li>A shared component library, so new sites roll out fast</li>
           <li>Fast, server-rendered pages with optimized images</li>
           <li>Structured data on every location for Google and AI search</li>
-          <li>Gift cards and merch sold through the group shop</li>
+          <li>Gift cards, merch and event tickets sold through headless Shopify</li>
         </ul>
       </div>
     </div>
@@ -327,10 +335,61 @@ footer .fine{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
   </div>
 </section>
 
+<section aria-labelledby="h-platform">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="num">03 · The tech stack</span><h2 id="h-platform">Next.js, Sanity and Shopify, working as one.</h2></div>
+      <p>Next.js builds the sites, Sanity runs the content and Shopify runs the commerce. All of it is shared: fix something once and it improves everywhere, and a new restaurant inherits all of it on day one.</p>
+    </div>
+    <div class="feat">
+      <div class="f"><span class="eyebrow">Sanity CMS</span><h3>Edit everything in one place</h3><p>A single content dataset for the group and every concept: menus, locations, hours, private rooms, gift cards and SEO fields.</p></div>
+      <div class="f"><span class="eyebrow">Next.js</span><h3>Fast by default</h3><p>Server-rendered pages, optimized images and a mobile-first build across desktop, tablet and phone.</p></div>
+      <div class="f"><span class="eyebrow">Design system</span><h3>A Figma library to build from</h3><p>Shared tokens, components and layouts, so each concept keeps its own look on a common foundation.</p></div>
+      <div class="f"><span class="eyebrow">Headless Shopify</span><h3>Gift cards, merch and tickets</h3><p>Shopify runs checkout, inventory and orders behind a custom storefront, replacing the old WooCommerce setup.</p></div>
+      <div class="f"><span class="eyebrow">Consistency</span><h3>The same structure on every site</h3><p>Locations, menu, gallery, gift cards, rewards, catering and private dining, where they apply, all in the same place on every site.</p></div>
+      <div class="f"><span class="eyebrow">Accessibility</span><h3>Built for every guest</h3><p>Semantic markup, keyboard navigation and contrast-aware design, plus an accessibility statement on every site.</p></div>
+    </div>
+    <div class="pair-head"><span class="eyebrow">Content in Sanity</span><h3>One studio for every site.</h3></div>
+    <div class="studio">
+      <figure class="shot "><button type="button" class="zoom" data-zoom="assets/shots/sanity-structure.webp" data-cap="The Sanity studio your team works in today: group site, shop, every restaurant, private dining rooms and global FAQs in one place."><img src="assets/shots/sanity-structure.webp" alt="The McNellie's Group Sanity studio, showing group site content, shop, every restaurant and private dining rooms" loading="lazy"><span class="zoom-hint">Click to enlarge</span></button><figcaption>The Sanity studio your team works in today: group site, shop, every restaurant, private dining rooms and global FAQs in one place.</figcaption></figure>
+      <div class="studio-notes">
+        <span class="eyebrow">Inside the studio</span>
+        <ul>
+          <li><b>Group site</b>Home, pages, settings and team members</li>
+          <li><b>Shop</b>Collections, products and shop settings</li>
+          <li><b>Restaurants</b>Every concept with its own settings, theme, locations, homepage and pages</li>
+          <li><b>Shared content</b>Private dining rooms, universal modules, global FAQs, testimonials and AI context</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pair-head"><span class="eyebrow">Commerce in Shopify</span><h3>A storefront that sells.</h3></div>
+    <div class="shop-stats">
+      <div><b>$82K</b><span>gross sales through Shopify, January 1 to November 5, 2026</span></div>
+      <div><b>511</b><span>orders</span></div>
+      <div><b>$160</b><span>average order value</span></div>
+      <div><b>98%</b><span>of sales through the custom Next.js storefront ($80.6K of $81.9K)</span></div>
+    </div>
+    <div class="studio">
+      <figure class="shot "><button type="button" class="zoom" data-zoom="assets/shots/shopify-analytics.webp" data-cap="Shopify analytics: $81,998.86 in total sales so far this year, led by physical gift cards, e-gift cards and the Roxtec VIP Watch Party."><img src="assets/shots/shopify-analytics.webp" alt="Shopify analytics for McNellie's Group showing sales over time, sales by channel and top products" loading="lazy"><span class="zoom-hint">Click to enlarge</span></button><figcaption>Shopify analytics: $81,998.86 in total sales so far this year, led by physical gift cards, e-gift cards and the Roxtec VIP Watch Party.</figcaption></figure>
+      <div class="studio-notes">
+        <span class="eyebrow">What it sells</span>
+        <ul>
+          <li><b>Gift cards</b>Physical and digital, the top sellers at $39.5K and $25.5K</li>
+          <li><b>Event tickets</b>Watch parties and dinners like Beer &amp; Beefsteak at Fassler Hall OKC</li>
+          <li><b>Merch</b>Tees, hats, beanies and hoodies for Bishop Quigley, Elgin Park and the group</li>
+        </ul>
+      </div>
+    </div>
+    <div class="gallery" style="margin-top:20px">
+      <figure class="shot wide"><button type="button" class="zoom" data-zoom="assets/shots/shopify-products.webp" data-cap="One product catalog for gift cards, event tickets and branded merch, with inventory tracked by variant."><img src="assets/shots/shopify-products.webp" alt="Shopify product list with gift cards, event tickets and branded merchandise" loading="lazy"><span class="zoom-hint">Click to enlarge</span></button><figcaption>One product catalog for gift cards, event tickets and branded merch, with inventory tracked by variant.</figcaption></figure>
+    </div>
+  </div>
+</section>
+
 <section class="ds" aria-labelledby="h-ds">
   <div class="wrap">
     <div class="sec-head">
-      <div><span class="num">03 · The design system</span><h2 id="h-ds">One master library powers every brand.</h2></div>
+      <div><span class="num">04 · The design system</span><h2 id="h-ds">One master library powers every brand.</h2></div>
       <p>Every color, logo, website and menu across the portfolio is built in Figma from a single master brand library. Each concept gets its own tokens, so Forno Santo still looks like Forno Santo, but everything underneath is shared. Change a style once and it carries through every file that uses it.</p>
     </div>
 
@@ -346,35 +405,6 @@ footer .fine{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
       <figure class="shot "><button type="button" class="zoom" data-zoom="assets/shots/figma-colors.webp" data-cap="Brand, surface and text color tokens, defined for each concept."><img src="assets/shots/figma-colors.webp" alt="Figma color token sheets for Forno Santo, Howdy Burger, Jimmy's, Malfi and more" loading="lazy"><span class="zoom-hint">Click to enlarge</span></button><figcaption>Brand, surface and text color tokens, defined for each concept.</figcaption></figure>
       <figure class="shot "><button type="button" class="zoom" data-zoom="assets/shots/figma-logos.webp" data-cap="Complete logo systems per concept, from primary lockups to stamps and illustrations."><img src="assets/shots/figma-logos.webp" alt="Figma logo libraries for Bar Serra, Bishop Quigley and Forno Santo" loading="lazy"><span class="zoom-hint">Click to enlarge</span></button><figcaption>Complete logo systems per concept, from primary lockups to stamps and illustrations.</figcaption></figure>
       <figure class="shot wide"><button type="button" class="zoom" data-zoom="assets/shots/figma-menus.webp" data-cap="Menu files across the portfolio, pulling from the same type, color and logo assets."><img src="assets/shots/figma-menus.webp" alt="Figma menu files for each McNellie's concept" loading="lazy"><span class="zoom-hint">Click to enlarge</span></button><figcaption>Menu files across the portfolio, pulling from the same type, color and logo assets.</figcaption></figure>
-    </div>
-  </div>
-</section>
-
-<section aria-labelledby="h-platform">
-  <div class="wrap">
-    <div class="sec-head">
-      <div><span class="num">04 · The platform</span><h2 id="h-platform">One system behind every site.</h2></div>
-      <p>Everything below is shared. Fix it once and it improves everywhere; add a restaurant and it inherits all of it on day one.</p>
-    </div>
-    <div class="feat">
-      <div class="f"><span class="eyebrow">Sanity CMS</span><h3>Edit everything in one place</h3><p>A single content dataset for the group and every concept: menus, locations, hours, private rooms, gift cards and SEO fields.</p></div>
-      <div class="f"><span class="eyebrow">Next.js</span><h3>Fast by default</h3><p>Server-rendered pages, optimized images and a mobile-first build across desktop, tablet and phone.</p></div>
-      <div class="f"><span class="eyebrow">Design system</span><h3>A Figma library to build from</h3><p>Shared tokens, components and layouts, so each concept keeps its own look on a common foundation.</p></div>
-      <div class="f"><span class="eyebrow">Commerce</span><h3>Gift cards and merch</h3><p>A headless group shop for gift cards and branded goods, in place of the old WooCommerce setup.</p></div>
-      <div class="f"><span class="eyebrow">Consistency</span><h3>The same structure on every site</h3><p>Locations, menu, gallery, gift cards, rewards, catering and private dining, where they apply, all in the same place on every site.</p></div>
-      <div class="f"><span class="eyebrow">Accessibility</span><h3>Built for every guest</h3><p>Semantic markup, keyboard navigation and contrast-aware design, plus an accessibility statement on every site.</p></div>
-    </div>
-    <div class="studio">
-      <figure class="shot "><button type="button" class="zoom" data-zoom="assets/shots/sanity-structure.webp" data-cap="The Sanity studio your team works in today: group site, shop, every restaurant, private dining rooms and global FAQs in one place."><img src="assets/shots/sanity-structure.webp" alt="The McNellie's Group Sanity studio, showing group site content, shop, every restaurant and private dining rooms" loading="lazy"><span class="zoom-hint">Click to enlarge</span></button><figcaption>The Sanity studio your team works in today: group site, shop, every restaurant, private dining rooms and global FAQs in one place.</figcaption></figure>
-      <div class="studio-notes">
-        <span class="eyebrow">Inside the studio</span>
-        <ul>
-          <li><b>Group site</b>Home, pages, settings and team members</li>
-          <li><b>Shop</b>Collections, products and shop settings</li>
-          <li><b>Restaurants</b>Every concept with its own settings, theme, locations, homepage and pages</li>
-          <li><b>Shared content</b>Private dining rooms, universal modules, global FAQs, testimonials and AI context</li>
-        </ul>
-      </div>
     </div>
   </div>
 </section>
@@ -410,7 +440,7 @@ footer .fine{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
     <div class="extras">
       <div><b>19</b>bookable private rooms, each with its own page, from The Vault at City Hall to The Bullpen at Elgin Park</div>
       <div><b>5</b>markets: Tulsa, Jenks, Oklahoma City, Bentonville and Little Rock</div>
-      <div><b>1</b>shop for the group gift card plus seasonal merch like the Route 66 Centennial tee</div>
+      <div><b>1</b>Shopify store for gift cards, event tickets and merch like the Route 66 Centennial tee</div>
     </div>
   </div>
 </section>
@@ -460,7 +490,7 @@ footer .fine{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
       <div class="row"><span class="n">02</span><div><b>Custom web design for every restaurant and the group site</b><p>Shared structure, unique branding per concept</p></div><span class="pill done">Delivered</span></div>
       <div class="row"><span class="n">03</span><div><b>Responsive Next.js front end</b><p>Desktop, tablet and mobile, built for speed</p></div><span class="pill done">Delivered</span></div>
       <div class="row"><span class="n">04</span><div><b>Centralized Sanity CMS</b><p>One dataset for menus, locations, rooms and SEO</p></div><span class="pill done">Delivered</span></div>
-      <div class="row"><span class="n">05</span><div><b>Headless commerce</b><p>Gift cards and merch through the group shop</p></div><span class="pill done">Delivered</span></div>
+      <div class="row"><span class="n">05</span><div><b>Headless Shopify</b><p>Gift cards, merch and event tickets, with a custom storefront and checkout</p></div><span class="pill done">Delivered</span></div>
       <div class="row"><span class="n">06</span><div><b>User roles &amp; CMS training</b><p>Admin and per-restaurant editor access</p></div><span class="pill done">Delivered</span></div>
       <div class="row"><span class="n">07</span><div><b>SEO integration &amp; phased rollout</b><p>Every site launched with sitemaps, metadata and structured data</p></div><span class="pill done">Delivered</span></div>
     </div>
