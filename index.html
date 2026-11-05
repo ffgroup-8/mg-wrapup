@@ -100,6 +100,39 @@ section{padding:clamp(64px,9vw,112px) 0}
 .mk svg{max-width:62%;max-height:62%;width:auto;height:auto}
 .mk figcaption{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;opacity:.8}
 @media (max-width:560px){.marks{grid-template-columns:1fr 1fr}}
+
+/* ---------- design system + screenshots ---------- */
+.ds{background:#f4ecdb}
+.flow{list-style:none;padding:0;margin:0 0 28px;display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:f}
+.flow li{counter-increment:f;padding:18px 20px 18px 0;border-top:3px solid var(--glen);position:relative}
+.flow li + li{padding-left:20px}
+.flow li::before{content:"0" counter(f);display:block;font-family:var(--display);color:var(--clover);font-size:14px;margin-bottom:6px}
+.flow li + li::after{content:"→";position:absolute;left:-8px;top:14px;color:var(--ignite);font-family:var(--display);font-size:20px;background:#f4ecdb;padding:0 2px}
+.flow b{display:block;font-family:var(--display);color:var(--glen);font-size:21px;line-height:1.1}
+.flow span{display:block;margin-top:4px;font-size:14px;color:var(--muted)}
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.shot{margin:0;display:flex;flex-direction:column;gap:10px}
+.shot.wide{grid-column:1 / -1}
+.zoom{position:relative;display:block;width:100%;padding:0;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff;cursor:zoom-in;transition:transform .2s ease,box-shadow .2s ease}
+.zoom img{display:block;width:100%;height:auto}
+.gallery .shot:not(.wide) .zoom{aspect-ratio:4/3}
+.gallery .shot:not(.wide) .zoom img{height:100%;object-fit:cover;object-position:top left}
+.zoom:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(64,32,13,.16)}
+.zoom-hint{position:absolute;right:12px;bottom:12px;background:var(--glen);color:var(--cream);font-size:12px;font-weight:600;padding:6px 10px;border-radius:999px;opacity:.92}
+.shot figcaption{font-size:14px;color:var(--muted)}
+.studio{display:grid;grid-template-columns:1.6fr 1fr;gap:28px;align-items:start;margin-top:28px}
+.studio-notes ul{list-style:none;padding:0;margin:12px 0 0;display:grid;gap:12px}
+.studio-notes li{border-top:1px solid var(--line);padding-top:12px;font-size:15px;color:var(--muted)}
+.studio-notes b{display:block;font-family:var(--display);color:var(--glen);font-size:18px}
+.studio-notes .eyebrow{color:var(--clover)}
+dialog.lb{border:0;padding:0;background:transparent;max-width:min(1400px,94vw);max-height:92vh;overflow:visible}
+dialog.lb::backdrop{background:rgba(0,26,7,.86)}
+.lb img{display:block;max-width:100%;max-height:82vh;width:auto;height:auto;border-radius:12px;margin:0 auto;background:#fff}
+.lb p{color:var(--cream);text-align:center;margin-top:12px;font-size:15px}
+.lb-close{position:absolute;top:-16px;right:-16px;width:40px;height:40px;border-radius:50%;border:0;background:var(--ignite);color:var(--stout);font-size:22px;font-weight:700;cursor:pointer;line-height:1}
+@media (max-width:900px){.flow{grid-template-columns:1fr 1fr}.flow li:nth-child(3){padding-left:0}.flow li:nth-child(3)::after{display:none}.studio{grid-template-columns:1fr}}
+@media (max-width:560px){.flow,.gallery{grid-template-columns:1fr}.flow li{padding-left:0 !important}.flow li::after{display:none}.lb-close{top:8px;right:8px}}
+@media (prefers-reduced-motion:reduce){.zoom{transition:none}.zoom:hover{transform:none}}
 /* ---------- platform ---------- */
 .feat{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .f{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px}
@@ -294,10 +327,33 @@ footer .fine{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
   </div>
 </section>
 
+<section class="ds" aria-labelledby="h-ds">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="num">03 · The design system</span><h2 id="h-ds">One master library powers every brand.</h2></div>
+      <p>Every color, logo, website and menu across the portfolio is built in Figma from a single master brand library. Each concept gets its own tokens, so Forno Santo still looks like Forno Santo, but everything underneath is shared. Change a style once and it carries through every file that uses it.</p>
+    </div>
+
+    <ol class="flow" aria-label="How the library flows into every design">
+      <li><b>Master library</b><span>Type, spacing, components and layout rules</span></li>
+      <li><b>Concept tokens</b><span>Brand, surface and text colors for each concept</span></li>
+      <li><b>Logo systems</b><span>Every lockup, badge, stamp and mark</span></li>
+      <li><b>Websites &amp; menus</b><span>Designed from the same parts, every time</span></li>
+    </ol>
+
+    <div class="gallery">
+      <figure class="shot wide"><button type="button" class="zoom" data-zoom="assets/shots/figma-websites.webp" data-cap="Website design files for every concept, each built on the shared library."><img src="assets/shots/figma-websites.webp" alt="Figma website design files for each McNellie's concept" loading="lazy"><span class="zoom-hint">Click to enlarge</span></button><figcaption>Website design files for every concept, each built on the shared library.</figcaption></figure>
+      <figure class="shot "><button type="button" class="zoom" data-zoom="assets/shots/figma-colors.webp" data-cap="Brand, surface and text color tokens, defined for each concept."><img src="assets/shots/figma-colors.webp" alt="Figma color token sheets for Forno Santo, Howdy Burger, Jimmy's, Malfi and more" loading="lazy"><span class="zoom-hint">Click to enlarge</span></button><figcaption>Brand, surface and text color tokens, defined for each concept.</figcaption></figure>
+      <figure class="shot "><button type="button" class="zoom" data-zoom="assets/shots/figma-logos.webp" data-cap="Complete logo systems per concept, from primary lockups to stamps and illustrations."><img src="assets/shots/figma-logos.webp" alt="Figma logo libraries for Bar Serra, Bishop Quigley and Forno Santo" loading="lazy"><span class="zoom-hint">Click to enlarge</span></button><figcaption>Complete logo systems per concept, from primary lockups to stamps and illustrations.</figcaption></figure>
+      <figure class="shot wide"><button type="button" class="zoom" data-zoom="assets/shots/figma-menus.webp" data-cap="Menu files across the portfolio, pulling from the same type, color and logo assets."><img src="assets/shots/figma-menus.webp" alt="Figma menu files for each McNellie's concept" loading="lazy"><span class="zoom-hint">Click to enlarge</span></button><figcaption>Menu files across the portfolio, pulling from the same type, color and logo assets.</figcaption></figure>
+    </div>
+  </div>
+</section>
+
 <section aria-labelledby="h-platform">
   <div class="wrap">
     <div class="sec-head">
-      <div><span class="num">03 · The platform</span><h2 id="h-platform">One system behind every site.</h2></div>
+      <div><span class="num">04 · The platform</span><h2 id="h-platform">One system behind every site.</h2></div>
       <p>Everything below is shared. Fix it once and it improves everywhere; add a restaurant and it inherits all of it on day one.</p>
     </div>
     <div class="feat">
@@ -308,13 +364,25 @@ footer .fine{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
       <div class="f"><span class="eyebrow">Consistency</span><h3>The same structure on every site</h3><p>Locations, menu, gallery, gift cards, rewards, catering and private dining, where they apply, all in the same place on every site.</p></div>
       <div class="f"><span class="eyebrow">Accessibility</span><h3>Built for every guest</h3><p>Semantic markup, keyboard navigation and contrast-aware design, plus an accessibility statement on every site.</p></div>
     </div>
+    <div class="studio">
+      <figure class="shot "><button type="button" class="zoom" data-zoom="assets/shots/sanity-structure.webp" data-cap="The Sanity studio your team works in today: group site, shop, every restaurant, private dining rooms and global FAQs in one place."><img src="assets/shots/sanity-structure.webp" alt="The McNellie's Group Sanity studio, showing group site content, shop, every restaurant and private dining rooms" loading="lazy"><span class="zoom-hint">Click to enlarge</span></button><figcaption>The Sanity studio your team works in today: group site, shop, every restaurant, private dining rooms and global FAQs in one place.</figcaption></figure>
+      <div class="studio-notes">
+        <span class="eyebrow">Inside the studio</span>
+        <ul>
+          <li><b>Group site</b>Home, pages, settings and team members</li>
+          <li><b>Shop</b>Collections, products and shop settings</li>
+          <li><b>Restaurants</b>Every concept with its own settings, theme, locations, homepage and pages</li>
+          <li><b>Shared content</b>Private dining rooms, universal modules, global FAQs, testimonials and AI context</li>
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
 
 <section class="port" aria-labelledby="h-port">
   <div class="wrap">
     <div class="sec-head">
-      <div><span class="num" style="color:#9fdcae">04 · The portfolio</span><h2 id="h-port">Twenty sites, one family.</h2></div>
+      <div><span class="num" style="color:#9fdcae">05 · The portfolio</span><h2 id="h-port">Twenty sites, one family.</h2></div>
       <p>The group hub plus every concept, each rebuilt on the new platform with its own identity intact.</p>
     </div>
     <div class="grid20">
@@ -350,7 +418,7 @@ footer .fine{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
 <section aria-labelledby="h-search">
   <div class="wrap">
     <div class="sec-head">
-      <div><span class="num">05 · Search &amp; AI</span><h2 id="h-search">Found on Google. Named by AI.</h2></div>
+      <div><span class="num">06 · Search &amp; AI</span><h2 id="h-search">Found on Google. Named by AI.</h2></div>
       <p>Guests now ask ChatGPT and Google the same question. We built every page to win both: classic SEO underneath, with Answer Engine Optimization (AEO) on top so AI tools can read, trust and recommend your restaurants.</p>
     </div>
 
@@ -384,7 +452,7 @@ footer .fine{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
 <section style="padding-top:0" aria-labelledby="h-score">
   <div class="wrap">
     <div class="sec-head">
-      <div><span class="num">06 · Scorecard</span><h2 id="h-score">What we promised. What we delivered.</h2></div>
+      <div><span class="num">07 · Scorecard</span><h2 id="h-score">What we promised. What we delivered.</h2></div>
       <p>Every deliverable from the original proposal, plus the work we took on along the way.</p>
     </div>
     <div class="score">
@@ -411,7 +479,7 @@ footer .fine{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
 <section class="next" aria-labelledby="h-next">
   <div class="wrap">
     <div class="sec-head">
-      <div><span class="num">07 · What's next</span><h2 id="h-next">Keep it going up.</h2></div>
+      <div><span class="num">08 · What's next</span><h2 id="h-next">Keep it going up.</h2></div>
       <p>The foundation is done. These are the small, high-value steps that keep compounding the results.</p>
     </div>
     <div class="next-list">
@@ -436,5 +504,24 @@ footer .fine{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
   </div>
 </footer>
 
+<dialog class="lb" id="lightbox" aria-label="Enlarged screenshot">
+  <button type="button" class="lb-close" aria-label="Close enlarged view">×</button>
+  <img alt="">
+  <p></p>
+</dialog>
+<script>
+(function(){
+  var d=document.getElementById('lightbox'), img=d.querySelector('img'), cap=d.querySelector('p');
+  document.querySelectorAll('.zoom').forEach(function(b){
+    b.addEventListener('click',function(){
+      img.src=b.dataset.zoom; img.alt=b.querySelector('img').alt; cap.textContent=b.dataset.cap||'';
+      if(d.showModal){d.showModal();}else{d.setAttribute('open','');}
+    });
+  });
+  function close(){ if(d.close){d.close();}else{d.removeAttribute('open');} }
+  d.querySelector('.lb-close').addEventListener('click',close);
+  d.addEventListener('click',function(e){ if(e.target===d) close(); });
+})();
+</script>
 </body>
 </html>
